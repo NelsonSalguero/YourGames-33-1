@@ -35,9 +35,11 @@ Conexion cn=new Conexion();
                 per.setClave(rs.getString("Clave"));
                 per.setTipoUsuario(rs.getString("tipoUsuario"));
                 list.add(per);
+                cn.desconectar();
             }
         } catch (Exception e) {
         }
+       
         return list;
     }
 
@@ -55,6 +57,7 @@ Conexion cn=new Conexion();
                 p.setUsuario(rs.getString("Usuario"));
                 p.setClave(rs.getString("Clave"));
                 p.setTipoUsuario(rs.getString("tipoUsuario"));
+                cn.desconectar();
             }
         } catch (Exception e) {
         }
@@ -68,6 +71,7 @@ Conexion cn=new Conexion();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
         }
        return false;
@@ -80,8 +84,10 @@ Conexion cn=new Conexion();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
         }
+        
         return false;
     }
 
@@ -92,6 +98,7 @@ Conexion cn=new Conexion();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
         }
         return false;

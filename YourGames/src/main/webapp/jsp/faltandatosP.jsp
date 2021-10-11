@@ -18,13 +18,15 @@
             <div class="menu">
                 <a href="log-admin.html"><img src="../img/yg-white.png" alt=""></a>
                 <nav>
-                    <ul>
-                        <li ><a href="../Controlador?accion=listar">Usuarios</a></li>
-                        <li><a href="../ControladorC?accion=listar">Clientes</a></li>
-                        <li class="active"><a href="../ControladorP?accion=listar">Proveedores</a></li>
-                        <li><a href="../ControladorP?accion=cargarCSV">PRODUCTOS</a></li>
-                        <li><a href="../ControladorP?accion=factura">VENTAS</a></li>
-                        <li><a href="#">Reportes</a></li>
+                     <ul>
+                        <li><a href="Controlador?accion=listar">USUARIOS</a></li>
+                        <li><a href="ControladorC?accion=listar">CLIENTES</a></li>
+                        <li class="active"><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
+                       <li><a href="ControladorCSV?accion=listar">PRODUCTOS</a></li>
+                        <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
+                        <li><a href="#">REPORTES</a></li>
+                        <li><a href="ControladorC?accion=Salir">CERRAR SESION</a></li>
+                        
                     </ul>
                 </nav>
             </div>

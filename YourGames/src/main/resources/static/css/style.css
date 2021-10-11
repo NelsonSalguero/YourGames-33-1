@@ -2,14 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
+
 }
 
 body {
     background-image: url("../img/bg.jpg");
     font-family: Arial, Helvetica, sans-serif;
     background-size: auto;
-    
+
 }
 
 /*--- LOGIN ADMIN ---*/
@@ -121,7 +121,7 @@ ul.tabs li:hover {
 }
 
 .boton {
-   
+
     width: 10%;
     background: #00c9ff;
     border: none;
@@ -135,53 +135,54 @@ ul.tabs li:hover {
 .boton:hover {background-color: #3e8e41}
 
 
-
-/*--- PANEL ADMIN ---*/
-header {
-    background: #1b2856;
+.header{
+     background: #1b2856;
     width: 100%;
     clear: both;
     content: '';
     display: table;
+/*    background: #000;
+    color: white;
+    padding: 2rem 0;*/
+}
+.header a{
+    color:white;
+    text-decoration: none;
 }
 
-.menu {
-    width: 900px;
-    margin: 0 auto;
+.logo-nav-container {
+    display:flex; 
+    justify-content: space-between;   
+    align-items: center;
+
+}
+.logo{
+    /*letter-spacing: 15px;
+    font-size: 1.5em;*/
+    height: 70px;
+    margin-left: 5px;
 }
 
-img {
-    width: 150px;
-    float: left;
-    padding: 8px;
-}
-
-nav {
-    float: right;
-}
-
-nav ul li {
+.navigation ul{
+    margin: 0;
+    padding: 0;
     list-style: none;
-    margin-left: 0px;
-    padding: 25px 20px;
-    float: left;
-    position: relative;
 }
-
-nav ul li:hover {
-    background-color: #7c00ff;
+.navigation ul li{
+    display: inline-block;
 }
-
+.navigation ul li a{
+    display: block;
+    padding: 0.5rem 1rem;
+    transition:all 0.4s linear;
+    border-radius: 5px;
+}
+.navigation ul li a:hover{
+    background-color: #ccc;
+    text-decoration: none;
+    border-radius: 5px;
+}
 .active {
     background-color: #00c9ff;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-a{
-     text-decoration: none;
+     border-radius: 5px;
 }

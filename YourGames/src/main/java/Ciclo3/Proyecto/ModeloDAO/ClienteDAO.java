@@ -34,6 +34,7 @@ public class ClienteDAO implements CRUDCliente {
                 cli.setTelefC(rs.getString("Telefono"));
                 cli.setCorreoC(rs.getString("Email"));
                 list.add(cli);
+                cn.desconectar();
             }
         } catch (Exception e) {
         }
@@ -55,6 +56,7 @@ public class ClienteDAO implements CRUDCliente {
                 c.setCorreoC(rs.getString("Email"));
 
             }
+            cn.desconectar();
         } catch (Exception e) {
         }
         return c;
@@ -67,6 +69,7 @@ public class ClienteDAO implements CRUDCliente {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
         }
         return false;
@@ -80,6 +83,7 @@ public class ClienteDAO implements CRUDCliente {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
 
         }
@@ -93,6 +97,7 @@ public class ClienteDAO implements CRUDCliente {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
         }
         return false;

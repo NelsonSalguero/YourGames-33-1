@@ -24,6 +24,7 @@ public class ProductoDAO {
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
             System.out.println("Enviado a DB");
+            cn.desconectar();
         } catch (Exception e) {
             System.out.println("No se pudo cargar datos en DB"+e);
         }
@@ -46,6 +47,7 @@ public class ProductoDAO {
                 prod.setPrecioVenta(rs.getDouble("precio_venta"));
                 list.add(prod);
             }
+            cn.desconectar();
         } catch (Exception e) {
         }
         return list;
@@ -59,7 +61,7 @@ public class ProductoDAO {
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
             System.out.println("Borrada la DB");
-                                             
+            cn.desconectar();                                 
         } catch (Exception e) {
         }
           
@@ -83,6 +85,7 @@ public class ProductoDAO {
                 produ.setPrecioVenta(rs.getDouble("precio_venta"));
 
             }
+            cn.desconectar();
             System.out.println("Producto encontrado ="+produ);
         } catch (Exception e) {
         }

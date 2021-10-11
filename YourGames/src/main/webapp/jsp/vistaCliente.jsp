@@ -39,7 +39,8 @@
                 </a>
                 <nav class="navigation">
                     <ul>
-                        <li><a href="../ControladorP?accion=factura">VENTAS</a></li>
+                        
+                        <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
                         <li><a href="#">REPORTES</a></li>
                     </ul>
                 </nav>
