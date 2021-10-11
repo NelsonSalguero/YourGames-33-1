@@ -10,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <title>Vista Admin</title>
-        <!--<link rel="stylesheet" href="../css/homestyle.css" type="text/css"/>-->
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/css/style.css" type="text/css"/>
         <link rel="stylesheet" href="/css/pages.css" type="text/css"/>
     </head>
@@ -28,7 +28,7 @@
         }
     %>
     <body>
-        <header class="header">
+         <header class="header">
             <div class="container logo-nav-container">
 
                 <a href="" class="logo">
@@ -40,10 +40,10 @@
                         <li><a href="../Controlador?accion=listar">USUARIOS</a></li>
                         <li><a href="../ControladorC?accion=listar">CLIENTES</a></li>
                         <li><a href="../ControladorP?accion=listar">PROVEEDORES</a></li>
-                        <li><a href="../ControladorP?accion=cargarCSV">PRODUCTOS</a></li>
+                        <li><a href="../ControladorCSV?accion=listar">PRODUCTOS</a></li>
                         <li><a href="../ControladorV?accion=goventas">VENTAS</a></li>
                         <li><a href="#">REPORTES</a></li>
-                        <li><a href="cerrarSesion.jsp">CERRAR SESION</a></li>
+                        <li><a href="../ControladorC?accion=Salir">CERRAR SESION</a></li>
                         
                     </ul>
                 </nav>
@@ -55,8 +55,7 @@
         <h1>Vista Administrador</h1>
         <h1>Bienvenido : <% out.print(user);%></h1><br>
         <br>
-        <!--<a href="vistaCliente.jsp" class="btn btn-primary"><span class="fa fa-eye"></span> Vista Cliente</a>-->
-     
+           
         </center>
 
     </div>

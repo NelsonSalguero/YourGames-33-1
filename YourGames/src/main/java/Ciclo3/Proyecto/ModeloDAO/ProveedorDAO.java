@@ -34,6 +34,7 @@ public class ProveedorDAO implements CRUDProv {
                 cli.setCiudad(rs.getString("Ciudad"));
                 list.add(cli);
             }
+            cn.desconectar();
         } catch (Exception e) {
         }
         return list;
@@ -54,6 +55,7 @@ public class ProveedorDAO implements CRUDProv {
                 c.setCiudad(rs.getString("Ciudad"));
 
             }
+            cn.desconectar();
         } catch (Exception e) {
         }
         return c;
@@ -66,6 +68,7 @@ public class ProveedorDAO implements CRUDProv {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
         }
         return false;
@@ -79,6 +82,7 @@ public class ProveedorDAO implements CRUDProv {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
 
         }
@@ -92,6 +96,7 @@ public class ProveedorDAO implements CRUDProv {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
+            cn.desconectar();
         } catch (Exception e) {
         }
         return false;

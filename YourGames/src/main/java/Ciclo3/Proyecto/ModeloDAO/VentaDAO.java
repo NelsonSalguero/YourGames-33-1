@@ -25,6 +25,7 @@ public class VentaDAO {
             while (rs.next()) {
                 idVenta=(rs.getInt("id"));//Carlos puso 1 en lugar de "id"
             }
+            cn.desconectar();
             System.out.println("Numro Actual ="+idVenta);
         } catch (Exception e) {
             System.out.println("Error aca num fact :"+e);

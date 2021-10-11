@@ -30,14 +30,14 @@
 
                 </a>
                 <nav class="navigation">
-                    <ul>
-                        <li><a href="../Controlador?accion=listar">USUARIOS</a></li>
-                        <li><a href="../ControladorC?accion=listar">CLIENTES</a></li>
-                        <li><a href="../ControladorP?accion=listar">PROVEEDORES</a></li>
-                       <li class="active"><a href="../ControladorP?accion=cargarCSV">PRODUCTOS</a></li>
-                        <li><a href="../ControladorP?accion=factura">VENTAS</a></li>
+                     <ul>
+                        <li><a href="Controlador?accion=listar">USUARIOS</a></li>
+                        <li><a href="ControladorC?accion=listar">CLIENTES</a></li>
+                        <li><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
+                        <li class="active"><a href="ControladorP?accion=cargarCSV">PRODUCTOS</a></li>
+                        <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
                         <li><a href="#">REPORTES</a></li>
-                        <li><a href="jsp/cerrarSesion.jsp">CERRAR SESION</a></li>
+                        <li><a href="ControladorC?accion=Salir">CERRAR SESION</a></li>
                         
                     </ul>
                 </nav>
@@ -57,13 +57,14 @@
                     
                 </div>
                 <div class="col-sm-4">
-                    <form action="../ControladorCSV" method="post" class="form-control">
+                    <form action="ControladorCSV"  class="form-control">
                         <div class="custom-file">
                             <input type="file" name="nombre" accept=".csv" 
                                                                  class="custom-file" size="40">
                         </div>
                         <br/>
-                        <input type="submit" value="Subir Archivo" class="btn btn-primary"><br/>
+                        <input type="submit" name="accion" value="Subir Archivo" class="btn btn-primary"><br><br>
+                        <input type="submit" name="accion" value="Ver Productos en DB" class="btn btn-success"><br/>
                     </form>
                 </div>
             </div>

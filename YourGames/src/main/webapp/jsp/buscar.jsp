@@ -23,15 +23,15 @@
 
                 </a>
                 <nav class="navigation">
-                    <ul>
-                        <li class="active"><a href="../Controlador?accion=listar">USUARIOS</a></li>
-                        <li><a href="../ControladorC?accion=listar">CLIENTES</a></li>
-                        <li><a href="../ControladorP?accion=listar">PROVEEDORES</a></li>
-                        <li><a href="../ControladorP?accion=cargarCSV">PRODUCTOS</a></li>
-                        <li><a href="../ControladorP?accion=factura">VENTAS</a></li>
+                     <ul>
+                        <li class="active"><a href="Controlador?accion=listar">USUARIOS</a></li>
+                        <li><a href="ControladorC?accion=listar">CLIENTES</a></li>
+                        <li><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
+                        <li><a href="ControladorCSV?accion=listar">PRODUCTOS</a></li>
+                        <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
                         <li><a href="#">REPORTES</a></li>
-                        <li><a href="cerrarSesion.jsp">CERRAR SESION</a></li>
-
+                        <li><a href="ControladorC?accion=Salir">CERRAR SESION</a></li>
+                        
                     </ul>
                 </nav>
             </div>

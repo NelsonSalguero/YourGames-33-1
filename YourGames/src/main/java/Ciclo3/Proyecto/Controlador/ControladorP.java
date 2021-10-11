@@ -21,8 +21,6 @@ public class ControladorP extends HttpServlet {
     String listarP = "jsp/proveedores.jsp";
     String faltandatos = "jsp/faltandatosP.jsp";
     String cerrar = "jsp/cerrarSesion.jsp";
-    String cargarCSV="jsp/productos.jsp";
-    String factura="jsp/factura.jsp";
     Proveedor p = new Proveedor();
     ProveedorDAO pdao = new ProveedorDAO();
     int nit;
@@ -145,11 +143,7 @@ public class ControladorP extends HttpServlet {
             acceso = listarP;
         } else if (action.equalsIgnoreCase("Salir")) {
             acceso = cerrar;
-        } else if (action.equalsIgnoreCase("CargarCSV")) {
-            acceso = cargarCSV;
-        } else if (action.equalsIgnoreCase("Factura")) {
-            acceso = factura;
-        }     
+        }    
         
         
         
