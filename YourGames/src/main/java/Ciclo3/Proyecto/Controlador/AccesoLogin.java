@@ -45,6 +45,7 @@ public class AccesoLogin extends HttpServlet {
                     HttpSession objSesion = request.getSession();
 
                     if (usu.getTipoUsuario().equals("Administrador")) {
+                        objSesion.setAttribute("objusuario",usu );
                         objSesion.setAttribute("usuario", user);
                         objSesion.setAttribute("nivel", "Administrador");
                         response.sendRedirect("jsp/vistaAdmin.jsp");

@@ -3,6 +3,7 @@ package Ciclo3.Proyecto.Controlador;
 import Ciclo3.Proyecto.Modelo.Cliente;
 import Ciclo3.Proyecto.Modelo.DetalleVenta;
 import Ciclo3.Proyecto.Modelo.Producto;
+import Ciclo3.Proyecto.Modelo.Usuario;
 import Ciclo3.Proyecto.Modelo.Venta;
 import Ciclo3.Proyecto.ModeloDAO.ClienteDAO;
 import Ciclo3.Proyecto.ModeloDAO.ProductoDAO;
@@ -16,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ControladorV extends HttpServlet {
 
@@ -24,7 +26,10 @@ public class ControladorV extends HttpServlet {
     String faltandatos = "jsp/faltandatos.jsp";
     Venta venta = new Venta();
     VentaDAO ventaDAO = new VentaDAO();
-
+    Usuario usuarioVenta = new Usuario();
+//    int usuarionow=0;
+//    usuarionow= quienes.getCedula();
+    int cedusuario = 0;
     Cliente clo = new Cliente();
     Producto pro = new Producto();
     DetalleVenta detalleVenta = new DetalleVenta();
@@ -58,6 +63,10 @@ public class ControladorV extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession objSesionVentas = request.getSession();
+        usuarioVenta= (Usuario)objSesionVentas.getAttribute("objusuario");
+        cedusuario=usuarioVenta.getCedula();
+        System.out.println("Cedula usuario traida a ventas:"+cedusuario);
         String acceso = "";
         String action = request.getParameter("accion");
         if (action.equalsIgnoreCase("goventas")) {

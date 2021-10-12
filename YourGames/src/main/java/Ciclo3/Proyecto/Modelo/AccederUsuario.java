@@ -20,10 +20,11 @@ public String login(Usuario usu)throws Exception
         try 
         {
             con=cn.getConnection();
-            String sql = "select tipoUsuario from usuarios where usuario=? and clave=?";
+            String sql = "select tipoUsuario, Cedula from usuarios where usuario=? and clave=?";
             PreparedStatement ps =this.getCon().prepareStatement(sql);
             ps.setString(1, usu.getUsuario());
             ps.setString(2, usu.getClave());
+
             rs= ps.executeQuery();
             if (rs.next()) {
 
@@ -31,6 +32,9 @@ public String login(Usuario usu)throws Exception
 
             }
             usu.setTipoUsuario(rs.getString("tipoUsuario"));
+            usu.setCedula(rs.getInt("Cedula"));
+            System.out.println("cedula traida en query="+usu.getCedula());
+
         } catch (Exception e) 
         {
             throw e;
