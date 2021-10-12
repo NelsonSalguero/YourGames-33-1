@@ -98,6 +98,11 @@ public class DetalleVenta {
     public void setValorIva(double valorIva) {
         this.valorIva = valorIva;
     }
+
+    @Override
+    public String toString() {
+        return "DetalleVenta{" + "id=" + id + ", idProducto=" + idProducto + ", descripcion=" + descripcion + ", idVenta=" + idVenta + ", cantidadProducto=" + cantidadProducto + ", precioventa=" + precioventa + ", valorTotal=" + valorTotal + ", valorVenta=" + valorVenta + ", valorIva=" + valorIva + '}';
+    }
     
     
 

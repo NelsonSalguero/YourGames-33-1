@@ -2,6 +2,7 @@
 package Ciclo3.Proyecto.ModeloDAO;
 
 import Ciclo3.Proyecto.Conexion.Conexion;
+import Ciclo3.Proyecto.Modelo.Venta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,13 +18,13 @@ public class VentaDAO {
     
     public int calcularIdVenta() {
     int idVenta=0;
-    String sql = "select max (id) from venta";
+    String sql = "SELECT MAX(id) FROM venta";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                idVenta=(rs.getInt("id"));//Carlos puso 1 en lugar de "id"
+                idVenta=(rs.getInt(1));//Carlos puso 1 en lugar de "id"
             }
             cn.desconectar();
             System.out.println("Numro Actual ="+idVenta);
@@ -31,8 +32,23 @@ public class VentaDAO {
             System.out.println("Error aca num fact :"+e);
         }
     
-    
-   
-    return idVenta;
+       return idVenta;
     }
+    
+    public boolean addFactura(Venta venta) {
+        String sql = "insert into venta values('" +venta.getId()+"','"+venta.getCedulaCliente()+"','"+venta.getIdUsuario()+"','"+venta.getIvaVenta()+"','"+venta.getTotalVenta()+"','"+venta.getValorVenta()+"')";
+        try {
+            con=cn.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();
+            System.out.println("Factura Enviada a DB");
+            cn.desconectar();
+        } catch (Exception e) {
+            System.out.println("No se pudo cargar Factura en DB"+e);
+        }
+       return false;
+    }
+    
+    
+    
 }
