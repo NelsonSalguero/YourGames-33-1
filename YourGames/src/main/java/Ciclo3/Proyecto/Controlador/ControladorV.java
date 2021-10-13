@@ -21,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class ControladorV extends HttpServlet {
-
+     String mensaje = null;
+    String aviso = null;
     String afacturar = "jsp/factura.jsp";
     String noenc = "jsp/noencontradoC.jsp";
     String faltandatos = "jsp/faltandatos.jsp";
@@ -72,6 +73,7 @@ public class ControladorV extends HttpServlet {
         System.out.println("Cedula usuario traida a ventas:"+cedusuario);
         String acceso = "";
         String action = request.getParameter("accion");
+        //Entra a Vista factura y trae No de factura
         if (action.equalsIgnoreCase("goventas")) {
             detalleVentas=new ArrayList<DetalleVenta>();
             numeroFactura = ventaDAO.calcularIdVenta();
@@ -79,19 +81,27 @@ public class ControladorV extends HttpServlet {
             System.out.println("Num fact es:" + numeroFactura);
             request.setAttribute("idVenta", numeroFactura);
             acceso = afacturar;
+            
+        //Trae datos del cliente x cedula    
         } else if (action.equalsIgnoreCase("buscarClienteF")) {
-
-            System.out.println("Entro a buscar cliente");
-            String concedula = request.getParameter("txtCedulaF");
-            System.out.println("concedula=" + concedula);
-            if (concedula != "") {
-                request.setAttribute("idper", request.getParameter("txtCedulaF"));
-                int id = Integer.parseInt((String) request.getAttribute("idper"));
+            if (request.getParameter("txtCedulaF").isEmpty()){
+                mensaje = null;
+                aviso = "  Cliente Nulo, Reintente";
+                request.setAttribute("aviso",aviso);
+                request.setAttribute("mensaje",mensaje);
+                acceso = afacturar;
+            }else{
+                System.out.println("Entro a buscar cliente");
+                int id = Integer.parseInt((String) request.getParameter("txtCedulaF"));
                 ClienteDAO cda = new ClienteDAO();
                 Cliente cli = (Cliente) cda.listC(id);
                 int control = cli.getCedulaC();
                 if (control == 0) {
-                    acceso = noenc;
+                    mensaje = null;
+                    aviso = "  Cliente No existe en DB";
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = afacturar;
                 } else {
                     //aca poner método para llevar los datos del cliente a factura
                     clo = cli;
@@ -101,24 +111,32 @@ public class ControladorV extends HttpServlet {
 
                     acceso = afacturar;
                 }
-            } else {
-                acceso = faltandatos;
-            }
+            }//Este cierra
         } else if (action.equalsIgnoreCase("buscarProductoF")) {
-
-            System.out.println("Entro a buscar Producto");
-            String concedula = request.getParameter("txtCodigoF");
-            System.out.println("concedula=" + concedula);
-            if (concedula != "") {
-                request.setAttribute("idper", request.getParameter("txtCodigoF"));
-                int id = Integer.parseInt((String) request.getAttribute("idper"));
+            if (request.getParameter("txtCodigoF").isEmpty()){
+                mensaje = null;
+                aviso = "  Producto Nulo, Reintente";
+                request.setAttribute("aviso",aviso);
+                request.setAttribute("mensaje",mensaje);
+                request.setAttribute("idVenta", numeroFactura);
+                request.setAttribute("clienteFactura", clo);
+                acceso = afacturar;
+            }else{
+                System.out.println("Entro a buscar Producto");
+                int id = Integer.parseInt((String) request.getParameter("txtCodigoF"));
                 ProductoDAO produ = new ProductoDAO();
                 Producto pp = (Producto) produ.listPro(id);
                 int control = pp.getCodigo();
                 if (control == 0) {
-                    acceso = noenc;
+                    mensaje = null;
+                    aviso = "  Producto No existe en DB";
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    request.setAttribute("idVenta", numeroFactura);
+                    request.setAttribute("clienteFactura", clo);
+                    acceso = afacturar;
                 } else {
-                    //aca poner método para llevar los datos del producto cliente y numero a factura
+//                     aca poner método para llevar los datos del producto cliente y numero a factura
                     pro = pp;
                     System.out.println("PRODUCTO ENCONTRADO= " + pro.toString());
                     System.out.println("CLIENTE ENCONTRADO= " + clo.toString());
@@ -131,10 +149,10 @@ public class ControladorV extends HttpServlet {
                     request.setAttribute("totalFactura", totalFactura);
                     acceso = afacturar;
                 }
-            } else {
-                acceso = faltandatos;
-            }
+            }//Este cierra
+            
         } else if (action.equalsIgnoreCase("agregarProducto")) {
+            
             System.out.println("Entró a agregar Producto");
             item += 1;
             System.out.println("valor item=" + item);
