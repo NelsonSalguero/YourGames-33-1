@@ -18,9 +18,12 @@
         String user = "";
         HttpSession objSesion = request.getSession();
         String usuario;
+         
         if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "Administrador") {
+        
             usuario = objSesion.getAttribute("usuario").toString();
-            user = "<label>" + usuario + "</label>";
+            user = "<label>" + usuario +  "</label>";
+        
         } else if (objSesion.getAttribute("usuario") != null && objSesion.getAttribute("nivel") == "Operador") {
             out.print("<script>location.replace('vistaCliente.jsp');</script>");
         } else {
@@ -54,6 +57,7 @@
         <center>
         <h1>Vista Administrador</h1>
         <h1>Bienvenido : <% out.print(user);%></h1><br>
+      
         <br>
            
         </center>

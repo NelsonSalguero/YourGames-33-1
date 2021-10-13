@@ -53,7 +53,7 @@
                 <div class="card text-white bg-primary mb-3">
                     <div class="card-body">
                         <div class="form-group">
-                            <label>DATOS DEL CLIENTE intentare dejar un solo form</label>
+                            <label>DATOS DEL CLIENTE</label>
                         </div>
                         
                         <div class="form-group d-flex">
@@ -160,14 +160,14 @@
                     </div>
                     <div class="card-footer">
                         <div class="form-group d-flex">
-                            <table border="0" class="table table-hover">
+                            <table border="0" class="table">
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <button type="submit" name="action" value="guardarFactura" class="btn btn-success" >Generar Factura</button>
+                                            <button type="submit" name="accion" value="guardarFactura" class="btn btn-success" >Generar Factura</button>
                                         </td>
                                         <td>
-                                           <button type="submit" name="action" value="cancelarFactura" class="btn btn-danger" >Cancelar Registro</button> 
+                                           <button type="submit" name="accion" value="cancelarFactura" class="btn btn-danger" >Cancelar Registro</button> 
                                         </td>
                                         <td>
                                             <label>Subtotal : </label>
@@ -210,7 +210,7 @@
                 
             </div>
             
-         </form> poner fin form aca!!!!!!!!!!!!!!!  
+         </form>  
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

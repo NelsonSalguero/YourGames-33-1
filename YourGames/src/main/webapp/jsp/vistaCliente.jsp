@@ -11,7 +11,12 @@
     <head>
         <meta charset="utf-8">
         <title>Vista Cliente</title>
-        <link rel="stylesheet" href="../css/homestyle.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/pages.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     </head>
        <%
             String user = "";

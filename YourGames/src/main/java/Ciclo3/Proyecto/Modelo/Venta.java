@@ -4,7 +4,7 @@ package Ciclo3.Proyecto.Modelo;
 
 public class Venta {
 private int id;
-private String cedulaCliente;
+private int cedulaCliente;
 private int idUsuario;
 private double ivaVenta;
 private double totalVenta;
@@ -13,7 +13,7 @@ private double valorVenta;
     public Venta() {
     }
 
-    public Venta(int id, String cedulaCliente, int idUsuario, double ivaVenta, double totalVenta, double valorVenta) {
+    public Venta(int id, int cedulaCliente, int idUsuario, double ivaVenta, double totalVenta, double valorVenta) {
         this.id = id;
         this.cedulaCliente = cedulaCliente;
         this.idUsuario = idUsuario;
@@ -30,11 +30,11 @@ private double valorVenta;
         this.id = id;
     }
 
-    public String getCedulaCliente() {
+    public int getCedulaCliente() {
         return cedulaCliente;
     }
 
-    public void setCedulaCliente(String cedulaCliente) {
+    public void setCedulaCliente(int cedulaCliente) {
         this.cedulaCliente = cedulaCliente;
     }
 
