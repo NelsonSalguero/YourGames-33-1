@@ -106,7 +106,7 @@
                                 
                             </div>
                             <div class="col-sm-2">
-                                <input type="text" name="txtCantidad" placeholder="Cantidad" class="form-control" value="1" class="text-align: right">
+                                <input type="number" name="txtCantidad" placeholder="Cantidad" class="form-control" value="1" class="text-align: right">
                                     
                             </div>
                             <div class="col-sm-4">

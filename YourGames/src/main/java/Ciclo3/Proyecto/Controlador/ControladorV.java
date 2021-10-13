@@ -152,45 +152,67 @@ public class ControladorV extends HttpServlet {
             }//Este cierra
             
         } else if (action.equalsIgnoreCase("agregarProducto")) {
-            
-            System.out.println("Entró a agregar Producto");
-            item += 1;
-            System.out.println("valor item=" + item);
-            numeroFactura = Integer.parseInt(request.getParameter("txtNumeroFactura"));
-            System.out.println("valor numero fact=" + numeroFactura);
-            codigoProductoVentas = Integer.parseInt(request.getParameter("txtCodigoF"));
-            descripcion = request.getParameter("txtNombreProducto");
-            System.out.println("Variables vienen num factura e item: " + numeroFactura + item);
-            precioVenta = Double.parseDouble(request.getParameter("txtPrecioVenta"));
-            cantidad = Integer.parseInt(request.getParameter("txtCantidad"));
-            valorVenta = precioVenta * cantidad;
-            valorIva = Math.round((valorVenta * pro.getIva() / 100) + 100 / 100);
-            valorTotal=valorVenta+valorIva;
-            subtotal += valorVenta;
-            totalIva += valorIva;
-            totalFactura = subtotal + totalIva;
-            detalleVenta = new DetalleVenta();
-            detalleVenta.setId(item);
-            detalleVenta.setDescripcion(descripcion);
-            detalleVenta.setIdVenta(numeroFactura);
-            detalleVenta.setIdProducto(codigoProductoVentas);
-            detalleVenta.setCantidadProducto(cantidad);
-            detalleVenta.setPrecioventa(precioVenta);
-            detalleVenta.setValorVenta(valorVenta);
-            detalleVenta.setValorIva(valorIva);
-            detalleVenta.setValorTotal(valorTotal);
-            detalleVentas.add(detalleVenta);
-            System.out.println("Arreglo detalleventas ="+detalleVentas);
-            request.setAttribute("clienteFactura", clo);
-            request.setAttribute("idVenta", numeroFactura);
-            request.setAttribute("productoFactura", pro);
-            //arriba los datos previamnte enviados
-            //abajo los datos del lado derecho
-            request.setAttribute("subtotal", subtotal);
-            request.setAttribute("totalIva", totalIva);
-            request.setAttribute("totalFactura", totalFactura);
-            request.setAttribute("detalleVentas", detalleVentas);
-            acceso = afacturar;
+            if (request.getParameter("txtCantidad").isEmpty()){
+                cantidad=0;
+            }else{
+            cantidad = Integer.parseInt(request.getParameter("txtCantidad"));}
+            System.out.println("Cantidad al agrgar en factura: "+cantidad);
+            if (cantidad <=0 ){
+                mensaje = null;
+                aviso = "  Cantidad Nula o Negativa, Reintente";
+                request.setAttribute("aviso",aviso);
+                request.setAttribute("mensaje",mensaje);
+                request.setAttribute("clienteFactura", clo);
+                request.setAttribute("idVenta", numeroFactura);
+                request.setAttribute("productoFactura", pro);
+                //arriba los datos previamnte enviados
+                //abajo los datos del lado derecho
+                request.setAttribute("subtotal", subtotal);
+                request.setAttribute("totalIva", totalIva);
+                request.setAttribute("totalFactura", totalFactura);
+                request.setAttribute("detalleVentas", detalleVentas);
+                acceso = afacturar;
+                
+                
+                } else {
+                    System.out.println("Entró a agregar Producto si todo bien");
+                    item += 1;
+                    System.out.println("valor item=" + item);
+                    numeroFactura = Integer.parseInt(request.getParameter("txtNumeroFactura"));
+                    System.out.println("valor numero fact=" + numeroFactura);
+                    codigoProductoVentas = Integer.parseInt(request.getParameter("txtCodigoF"));
+                    descripcion = request.getParameter("txtNombreProducto");
+                    System.out.println("Variables vienen num factura e item: " + numeroFactura + item);
+                    precioVenta = Double.parseDouble(request.getParameter("txtPrecioVenta"));
+                    cantidad = Integer.parseInt(request.getParameter("txtCantidad"));
+                    valorVenta = precioVenta * cantidad;
+                    valorIva = Math.round((valorVenta * pro.getIva() / 100) + 100 / 100);
+                    valorTotal=valorVenta+valorIva;
+                    subtotal += valorVenta;
+                    totalIva += valorIva;
+                    totalFactura = subtotal + totalIva;
+                    detalleVenta = new DetalleVenta();
+                    detalleVenta.setId(item);
+                    detalleVenta.setDescripcion(descripcion);
+                    detalleVenta.setIdVenta(numeroFactura);
+                    detalleVenta.setIdProducto(codigoProductoVentas);
+                    detalleVenta.setCantidadProducto(cantidad);
+                    detalleVenta.setPrecioventa(precioVenta);
+                    detalleVenta.setValorVenta(valorVenta);
+                    detalleVenta.setValorIva(valorIva);
+                    detalleVenta.setValorTotal(valorTotal);
+                    detalleVentas.add(detalleVenta);
+                    System.out.println("Arreglo detalleventas ="+detalleVentas);
+                    request.setAttribute("clienteFactura", clo);
+                    request.setAttribute("idVenta", numeroFactura);
+                    request.setAttribute("productoFactura", pro);
+                    //arriba los datos previamnte enviados
+                    //abajo los datos del lado derecho
+                    request.setAttribute("subtotal", subtotal);
+                    request.setAttribute("totalIva", totalIva);
+                    request.setAttribute("totalFactura", totalFactura);
+                    request.setAttribute("detalleVentas", detalleVentas);
+                    acceso = afacturar;}
 
         }else if (action.equalsIgnoreCase("guardarFactura")) {
             System.out.println("Entró a Guardar Factura");
