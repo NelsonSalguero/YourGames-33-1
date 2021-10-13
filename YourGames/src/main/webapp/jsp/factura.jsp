@@ -76,7 +76,7 @@
                     </div>
                     <div class="card-body">
                         
-                        <div class="form-group">
+                        <div class="form-group"> 
                             <label>DATOS DEL PRODUCTO</label>
                         </div>
                         <div class="form-group d-flex">
@@ -96,24 +96,38 @@
                              
                             
                         <div class="form-group">
-                            <label>DIGITE LA CANTIDAD Y AGREGUE>>>></label>
+                            <label>   DIGITE LA CANTIDAD Y AGREGUE>>>></label>
                         </div>
-                        <div class="form-group d-flex">
+                                              
+                        <div >
                             
                             <div class="col-sm-6">
                                  <button type="submit" name="accion" value="agregarProducto" class="btn btn-success">Agregar Producto</button>
                                 
                             </div>
                             <div class="col-sm-2">
-                                <input type="text" name="txtCantidad" placeholder="Cantidad" class="form-control" value="1" class="text-align: right">
+                                <input type="number" name="txtCantidad" placeholder="Cantidad" class="form-control" value="1" class="text-align: right">
                                     
                             </div>
                             <div class="col-sm-4">
                                 <input type="text" name="txtPrecioVenta" placeholder="0.00" class="form-control" style="text-align: right" 
                                            value="${productoFactura.getPrecioVenta()}" readonly="">
                             </div>
-                        </div>
-                        
+                        </div>  
+                            <div > <br>.
+                                <c:if test="${mensaje != null}" >
+                                    <div class="alert alert-success alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>Resultado!</strong>${mensaje}
+                                    </div>
+                                </c:if>
+                                <c:if test="${aviso != null}" >
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>Error:</strong>${aviso}
+                                    </div>
+                                </c:if>  
+                            </div>   
                     </div>
                     
                 </div>
