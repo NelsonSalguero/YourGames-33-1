@@ -44,12 +44,12 @@
                     </ul>
                 </nav>
             </div>
-        </header><br>
+        </header>
     <center>
         <div class="">
             <h1>Administrador de Usuarios YourGames</h1>
-            <br>
-            <div>
+            
+            <div class="mensaje">
                     <c:if test="${mensaje != null}" >
                         <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -63,7 +63,7 @@
                         </div>
                     </c:if>  
 
-                </div>
+                </div><br/>
             <a class="btn btn-success" href="Controlador?accion=add">Agregar Nuevo</a>
            
             

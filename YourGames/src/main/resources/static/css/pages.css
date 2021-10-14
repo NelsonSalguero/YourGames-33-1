@@ -134,3 +134,9 @@ input, textarea,select{
     border-radius: 30px; /*bordes redondos*/
     font-size: 13px;
 }
+
+.mensaje {
+  border: none;
+  height:54px;
+  width: 400px;
+}
