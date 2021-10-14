@@ -65,23 +65,7 @@
 
 
                 <input type="hidden" name="txtCedula" value="<%= p.getCedula()%>">
-                <!-- <input class="boton2" type="submit" name="accion" value="Actualizar">--> 
-                <input class="boton2" type="submit" name="accion" value="Actualizar" onclick="javascript:return confirmAction()">
-                <script>
-                    // The function below will start the confirmation dialog
-                    function confirmAction() {
-                        let confirmAction = confirm("Confirma Actualizar este usuario?");
-                        if (confirmAction) {
-                            alert("Usuario Actualizado");
-                            return true;
-
-                        } else {
-                            alert("Usuario No Actualizado");
-                            return false;
-
-                        }
-                    }
-                </script> 
+                <input class="boton2" type="submit" name="accion" value="Actualizar" >
                 <a class="boton1"href="Controlador?accion=listar">Regresar</a>
              </div> 
             </section>

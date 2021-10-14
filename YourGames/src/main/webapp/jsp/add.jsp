@@ -49,7 +49,7 @@
                     <input class="txt" type="email" name="txtCorreo" required=""><br>
                     USUARIO
                     <input class="txt" type="text" name="txtUsuario" required=""><br>
-                    CCONTRASEÑA
+                    CONTRASEÑA
                     <input class="txt" type="text" name="txtClave" required=""><br>
                     NIVEL
                     <select class="txt" name="txtNivel" id="acceso" >
@@ -59,22 +59,8 @@
                     <!--<input class="form-control" type="text" name="txtNivel"><br>-->
                     <br>
                     <!--<input class="boton2" type="submit" name="accion" value="Agregar">-->
-                    <input class="boton2" type="submit" name="accion" value="Agregar" onclick="javascript:return confirmAction()">
-                    <script>
-                        // The function below will start the confirmation dialog
-                        function confirmAction() {
-                            let confirmAction = confirm("Confirma Agregar este usuario?");
-                            if (confirmAction) {
-                                alert("Usuario Agregado");
-                                return true;
-
-                            } else {
-                                alert("Usuario No Agregado");
-                                return false;
-
-                            }
-                        }
-                    </script> 
+                    <input class="boton2" type="submit" name="accion" value="Agregar" >
+                   
                     <a class="boton1" href="Controlador?accion=listar">Regresar</a>
                 </div> 
             </section>

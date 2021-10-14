@@ -9,7 +9,7 @@
 <%@page import="Ciclo3.Proyecto.Modelo.Usuario"%>
 <%@page import="java.util.List"%>
 <%@page import="Ciclo3.Proyecto.ModeloDAO.UsuarioDAO"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
@@ -49,6 +49,21 @@
         <div class="">
             <h1>Administrador de Usuarios YourGames</h1>
             <br>
+            <div>
+                    <c:if test="${mensaje != null}" >
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Resultado!</strong>${mensaje}
+                        </div>
+                    </c:if>
+                    <c:if test="${aviso != null}" >
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Error:</strong>${aviso}
+                        </div>
+                    </c:if>  
+
+                </div>
             <a class="btn btn-success" href="Controlador?accion=add">Agregar Nuevo</a>
            
             
@@ -100,7 +115,7 @@
                         function confirmAction() {
                             let confirmAction = confirm("Confirma el Borrado de este usuario?");
                             if (confirmAction) {
-                                alert("Datos el Usuario Borrados");
+                                alert("Los Datos del Usuario serán Borrados");
                                 return true;
 
                             } else {
@@ -118,5 +133,9 @@
             </table>
             </div>
         </div></center>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>   
+
     </body>
 </html>

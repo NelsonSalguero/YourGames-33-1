@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Controlador extends HttpServlet {
-
+    String mensaje = null;
+    String aviso = null;
     String listar = "jsp/listar.jsp";
     String add = "jsp/add.jsp";
     String edit = "jsp/edit.jsp";
@@ -80,7 +81,11 @@ public class Controlador extends HttpServlet {
             p.setClave(clave);
             p.setTipoUsuario(tipoUsuario);
             dao.add(p);
-            acceso = add;
+            mensaje = "---Usuario Creado---- ";
+                aviso = null; 
+                request.setAttribute("aviso",aviso);
+                request.setAttribute("mensaje",mensaje);
+                acceso = listar;
         } else if (action.equalsIgnoreCase("editar")) {
 
             request.setAttribute("idper", request.getParameter("cedula"));
@@ -93,7 +98,12 @@ public class Controlador extends HttpServlet {
             Usuario p = (Usuario) bus.list(id);;
             int control = p.getCedula();
             if (control == 0) {
-                acceso = noenc;
+                mensaje = null;
+                    aviso = "---Cliente Inexistente---- "; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = listar;
+                
             } else {
                 acceso = search;
             }
@@ -112,11 +122,20 @@ public class Controlador extends HttpServlet {
             p.setClave(clave);
             p.setTipoUsuario(tipoUsuario);
             dao.edit(p);
+                    mensaje = "---Datos del Cliente Actualizados---- ";
+                    aviso = null; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
             acceso = listar;
         } else if (action.equalsIgnoreCase("eliminar")) {
             cedula = Integer.parseInt(request.getParameter("cedula"));
             p.setCedula(cedula);
             dao.eliminar(cedula);
+                    mensaje = "---Datos del Cliente Borrados---- ";
+                    aviso = null; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+ 
             acceso = listar;
 
         }

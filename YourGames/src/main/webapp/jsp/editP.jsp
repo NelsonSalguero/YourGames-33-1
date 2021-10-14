@@ -30,9 +30,9 @@
             </a>
             <nav class="navigation">
                  <ul>
-                        <li class="active"><a href="Controlador?accion=listar">USUARIOS</a></li>
+                        <li><a href="Controlador?accion=listar">USUARIOS</a></li>
                         <li><a href="ControladorC?accion=listar">CLIENTES</a></li>
-                        <li><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
+                        <li  class="active"><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
                        <li><a href="ControladorCSV?accion=listar">PRODUCTOS</a></li>
                         <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
                         <li><a href="#">REPORTES</a></li>
@@ -66,22 +66,7 @@
                     CORREO ELECTRÓNICO
                     <input class="txt" type="text" name="txtCiudad" value="<%= p.getCiudad()%>" >
 
-                    <input class="btn btn-success" type="submit" name="accion" value="Crear" onclick="javascript:return confirmAction3()">
-                    <script>
-                        // The function below will start the confirmation dialog
-                        function confirmAction3() {
-                            let confirmAction = confirm("Desea Crear este Proveedor?");
-                            if (confirmAction) {
-                                alert("El Proveedor será Creado");
-                                return true;
-
-                            } else {
-                                alert("Acción cancelada");
-                                return false;
-
-                            }
-                        }
-                    </script> 
+                    <input class="btn btn-success" type="submit" name="accion" value="Crear" >
                     <input class="btn btn-primary" type="submit" name="accion" value= "Consultar">
                     <input class="btn btn-warning" type="submit" name="accion"   value="Actualizar">
                     <input class="btn btn-danger" type="submit" name="accion" value="Borrar"onclick="javascript:return confirmAction4()">
