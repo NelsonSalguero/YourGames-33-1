@@ -9,6 +9,7 @@
 <%@page import="java.util.List"%>
 <%@page import="Ciclo3.Proyecto.ModeloDAO.ClienteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -43,6 +44,21 @@
             </div>
         </header><center>
         <h1> MODULO CLIENTES YOUR GAMES</h1></center>
+            <div>
+                    <c:if test="${mensaje != null}" >
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Resultado!</strong>${mensaje}
+                        </div>
+                    </c:if>
+                    <c:if test="${aviso != null}" >
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Error:</strong>${aviso}
+                        </div>
+                    </c:if>  
+
+                </div>
         <div class="content">
             <form action="../ControladorC">
                 <section >
@@ -58,22 +74,7 @@
                     CORREO ELECTRÓNICO
                     <input class="txt" type="email" name="txtCorreoC" id="correo" >
                    
-                    <input class="btn btn-success " type="submit" name="accion" value="Crear" onclick="javascript:return confirmAction1()">
-                        <script>
-                            // The function below will start the confirmation dialog
-                            function confirmAction1() {
-                                let confirmAction = confirm("Desea Crear este cliente?");
-                                if (confirmAction) {
-                                    alert("El Cliente será Creado");
-                                    return true;
-
-                                } else {
-                                    alert("Acción cancelada");
-                                    return false;
-
-                                }
-                            }
-                        </script> 
+                    <input class="btn btn-success " type="submit" name="accion" value="Crear" >
                     <input class="btn btn-primary" type="submit" name="accion" value="Consultar">
                     <input class="btn btn-danger" type="submit" name="accion"  value="Borrar" onclick="javascript:return confirmAction2()">
                         <script>
@@ -150,6 +151,10 @@
             </table>
      
         </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>   
+            
     </body>
 
 </html>

@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ControladorC extends HttpServlet {
-
-    String noenc = "jsp/noencontradoC.jsp";
+    String mensaje = null;
+    String aviso = null;
     String edit = "jsp/editC.jsp";
     String listarC = "jsp/clientes.jsp";
-    String faltandatos = "jsp/faltandatos.jsp";
     String cerrar = "jsp/cerrarSesion.jsp";
-    String afacturar="jsp/factura.jsp";
     Cliente c = new Cliente();
     ClienteDAO cdao = new ClienteDAO();
     int cedulac;
@@ -62,7 +60,7 @@ public class ControladorC extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
+
         String acceso = "";
         String action = request.getParameter("accion");
         if (action.equalsIgnoreCase("listar")) {
@@ -82,10 +80,19 @@ public class ControladorC extends HttpServlet {
                 c.setTelefC(tel);
                 c.setCorreoC(correo);
                 cdao.addC(c);
+                mensaje = "---Cliente Creado---- ";
+                aviso = null; 
+                request.setAttribute("aviso",aviso);
+                request.setAttribute("mensaje",mensaje);
+                
                 acceso = listarC;
 
             } else {
-                acceso = faltandatos;
+                mensaje = null;
+                aviso = "---Faltan Datos del Cliente---- "; 
+                request.setAttribute("aviso",aviso);
+                request.setAttribute("mensaje",mensaje);
+                acceso = listarC;
                   
             }
         } else if (action.equalsIgnoreCase("Consultar")) {
@@ -97,13 +104,20 @@ public class ControladorC extends HttpServlet {
                 Cliente c = (Cliente) clo.listC(id);;
                 int control = c.getCedulaC();
                 if (control == 0) {
-                    acceso = noenc;
+                    mensaje = null;
+                    aviso = "---Cliente Inexistente---- "; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = listarC;
                 } else {
-//                acceso = edit;
                     acceso = edit;
                 }
             } else {
-                acceso = faltandatos;
+                mensaje = null;
+                 aviso = "---Faltan Datos del Cliente---- "; 
+                 request.setAttribute("aviso",aviso);
+                 request.setAttribute("mensaje",mensaje);
+                 acceso = listarC;
             }
         }  else if (action.equalsIgnoreCase("Editar")) {
 
@@ -125,7 +139,11 @@ public class ControladorC extends HttpServlet {
                 cdao.editC(c);
                 acceso = listarC;
             } else {
-                acceso = faltandatos;
+                mensaje = null;
+                 aviso = "---Faltan Datos del Cliente---- "; 
+                 request.setAttribute("aviso",aviso);
+                 request.setAttribute("mensaje",mensaje);
+                 acceso = listarC;
             }
 
         } else if (action.equalsIgnoreCase("Borrar")) {
@@ -137,22 +155,31 @@ public class ControladorC extends HttpServlet {
                 Cliente c = (Cliente) clo.listC(id);;
                 int control = c.getCedulaC();
                 if (control == 0) {
-                    acceso = noenc;
+                     mensaje = null;
+                    aviso = "---Cliente Inexistente o Cédula Errada---- "; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = listarC;
                 }else{
                 cedulac = Integer.parseInt(request.getParameter("txtcedulaC"));
                 c.setCedulaC(cedulac);
                 cdao.eliminarC(cedulac);
-                acceso = listarC;}
+                mensaje = "---Datos del Cliente Borrados---- ";
+                    aviso = null; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = listarC;
+                }
             } else {
-                acceso = faltandatos;
+                 mensaje = null;
+                 aviso = "---Faltan Datos del Cliente---- "; 
+                 request.setAttribute("aviso",aviso);
+                 request.setAttribute("mensaje",mensaje);
+                 acceso = listarC;
             }
-        } else if (action.equalsIgnoreCase("Limpiar")) {
-            acceso = listarC;
         } else if (action.equalsIgnoreCase("Cancelar")) {
             acceso = listarC;
-        } else if (action.equalsIgnoreCase("Salir")) {
-            acceso = cerrar;
-        }
+        } 
 
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
 

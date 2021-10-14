@@ -15,11 +15,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author PORTATIL
  */
 public class ControladorP extends HttpServlet {
-
-    String noenc = "jsp/noencontradoP.jsp";
+    String mensaje = null;
+    String aviso = null;
     String edit = "jsp/editP.jsp";
     String listarP = "jsp/proveedores.jsp";
-    String faltandatos = "jsp/faltandatosP.jsp";
     String cerrar = "jsp/cerrarSesion.jsp";
     Proveedor p = new Proveedor();
     ProveedorDAO pdao = new ProveedorDAO();
@@ -71,10 +70,19 @@ public class ControladorP extends HttpServlet {
                 p.setTelefP(tel);
                 p.setCiudad(ciudad);
                 pdao.addP(p);
+                mensaje = "---Proveedor Creado---- ";
+                aviso = null; 
+                request.setAttribute("aviso",aviso);
+                request.setAttribute("mensaje",mensaje);
                 acceso = listarP;
 
             } else {
-                acceso = faltandatos;
+                 mensaje = null;
+                 aviso = "---Faltan Datos del Proveedor---- "; 
+                 request.setAttribute("aviso",aviso);
+                 request.setAttribute("mensaje",mensaje);
+                 acceso = listarP;
+
 
             }
         } else if (action.equalsIgnoreCase("Consultar")) {
@@ -86,13 +94,23 @@ public class ControladorP extends HttpServlet {
                 Proveedor p = (Proveedor) clo.listP(id);
                 int control = p.getNit();
                 if (control == 0) {
-                    acceso = noenc;
+                    mensaje = null;
+                    aviso = "---Proveedor Inexistente---- "; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = listarP;
+                    
+                    
                 } else {
-//                acceso = edit;
+
                     acceso = edit;
                 }
             } else {
-                acceso = faltandatos;
+                 mensaje = null;
+                 aviso = "---Faltan Datos del Proveedor---- "; 
+                 request.setAttribute("aviso",aviso);
+                 request.setAttribute("mensaje",mensaje);
+                 acceso = listarP;
             }
 
         } else if (action.equalsIgnoreCase("Editar")) {
@@ -113,9 +131,19 @@ public class ControladorP extends HttpServlet {
                 p.setTelefP(telefono);
                 p.setCiudad(ciudad);
                 pdao.editP(p);
+                mensaje = "---Datos del Proveedor Actualizado---- ";
+                    aviso = null; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = listarP;
+                
                 acceso = listarP;
             } else {
-                acceso = faltandatos;
+                 mensaje = null;
+                 aviso = "---Faltan Datos del Proveedor---- "; 
+                 request.setAttribute("aviso",aviso);
+                 request.setAttribute("mensaje",mensaje);
+                 acceso = listarP;
             }
 
         } else if (action.equalsIgnoreCase("Borrar")) {
@@ -127,23 +155,34 @@ public class ControladorP extends HttpServlet {
                 Proveedor p = (Proveedor) clo.listP(id);;
                 int control = p.getNit();
                 if (control == 0) {
-                    acceso = noenc;
+                    mensaje = null;
+                    aviso = "---Proveedor Inexistente o NIT Errado---- "; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
+                    acceso = listarP;
                 } else {
                     nit = Integer.parseInt(request.getParameter("txtNit"));
                     p.setNit(nit);
                     pdao.eliminarP(nit) ;
+                    mensaje = "---Datos del Proveedor Borrados---- ";
+                    aviso = null; 
+                    request.setAttribute("aviso",aviso);
+                    request.setAttribute("mensaje",mensaje);
                     acceso = listarP;
+                    
                 }
             } else {
-                acceso = faltandatos;
+                 mensaje = null;
+                 aviso = "---Faltan Datos del Proveedor---- "; 
+                 request.setAttribute("aviso",aviso);
+                 request.setAttribute("mensaje",mensaje);
+                 acceso = listarP;
             }
         } else if (action.equalsIgnoreCase("Limpiar")) {
             acceso = listarP;
         } else if (action.equalsIgnoreCase("Cancelar")) {
             acceso = listarP;
-        } else if (action.equalsIgnoreCase("Salir")) {
-            acceso = cerrar;
-        }    
+        }     
         
         
         
