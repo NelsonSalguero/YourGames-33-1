@@ -45,8 +45,9 @@
                 <nav class="navigation">
                     <ul>
                         
-                        <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
+                        <li><a href="../ControladorV?accion=goventas">VENTAS</a></li>
                         <li><a href="#">REPORTES</a></li>
+                        <li><a href="../ControladorC?accion=Salir">CERRAR SESION</a></li>
                     </ul>
                 </nav>
             </div>
@@ -56,7 +57,10 @@
             <h1>Vista Operador</h1>
         <% out.print(admin); %>
         <h1>Bienvenido <% out.print(user);%></h1>
-        <a href="cerrarSesion.jsp" class="boton1"> Cerrar sesion</a>    
+       
+         <br>
+          <br>
+        
             
             
            

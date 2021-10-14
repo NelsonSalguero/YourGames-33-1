@@ -44,8 +44,8 @@
                 </nav>
             </div>
         </header><center>
-        <h1> MODULO PROVEEDORES YOUR GAMES</h1></center>
-                <div>
+        <h1> MODULO PROVEEDORES YOUR GAMES</h1>
+                <div class="mensaje">
                     <c:if test="${mensaje != null}" >
                         <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -59,7 +59,7 @@
                         </div>
                     </c:if>  
 
-                </div>
+                </div> </center>
     <div class="content">
         <form action="ControladorP">
             <section>
