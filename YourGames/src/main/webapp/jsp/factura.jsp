@@ -14,12 +14,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/pages.css" type="text/css"/>
-        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
+     
         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
         <link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../css/pages.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
         
         <title>Ventas</title>
     </head>
@@ -36,9 +37,9 @@
                         <li><a href="Controlador?accion=listar">USUARIOS</a></li>
                         <li><a href="ControladorC?accion=listar">CLIENTES</a></li>
                         <li><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
-                       <li><a href="ControladorCSV?accion=listar">PRODUCTOS</a></li>
+                        <li><a href="ControladorCSV?accion=listar">PRODUCTOS</a></li>
                         <li class="active"><a href="ControladorV?accion=goventas">VENTAS</a></li>
-                        <li><a href="#">REPORTES</a></li>
+                        <li><a href="ControladorInfor?accion=listar">REPORTES</a></li>
                         <li><a href="ControladorC?accion=Salir">CERRAR SESION</a></li>
                         
                     </ul>
