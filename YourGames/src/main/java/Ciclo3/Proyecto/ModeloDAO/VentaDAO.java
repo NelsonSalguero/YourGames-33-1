@@ -2,10 +2,14 @@
 package Ciclo3.Proyecto.ModeloDAO;
 
 import Ciclo3.Proyecto.Conexion.Conexion;
+import Ciclo3.Proyecto.Modelo.Cliente;
+import Ciclo3.Proyecto.Modelo.ReporteVentas;
 import Ciclo3.Proyecto.Modelo.Venta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class VentaDAO {
@@ -48,7 +52,28 @@ public class VentaDAO {
         }
        return false;
     }
-    
+    public List reporteVentasXCliente() {
+        ArrayList<ReporteVentas> list = new ArrayList<>();
+        String sql = "select v.cedulaCliente, c.NombreC, sum(v.totalVenta) as Total from "
+                + "venta v, clientes c where v.cedulaCliente = c.Cedula group by v.cedulaCliente, c.NombreC";
+        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ReporteVentas repoV = new ReporteVentas();
+                repoV.setCedulaCliente(rs.getInt(1));
+                repoV.setNombreCliente(rs.getString(2));
+                repoV.setVentaT(rs.getDouble(3));
+                list.add(repoV);
+                cn.desconectar();
+            }
+        } catch (Exception e) {
+            System.out.println("Error en DAO SQL reporteVentasXCliente"+e);
+        }
+        return list;
+    }
     
     
 }

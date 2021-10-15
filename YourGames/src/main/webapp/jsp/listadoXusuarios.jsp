@@ -33,12 +33,12 @@
                 </a>
                 <nav class="navigation">
                     <ul>
-                        <li class="active"><a href="Controlador?accion=listar">USUARIOS</a></li>
+                        <li><a href="Controlador?accion=listar">USUARIOS</a></li>
                         <li><a href="ControladorC?accion=listar">CLIENTES</a></li>
                         <li><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
                        <li><a href="ControladorCSV?accion=listar">PRODUCTOS</a></li>
                         <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
-                        <li><a href="ControladorInfor?accion=listar">REPORTES</a></li>
+                        <li class="active"><a href="ControladorInfor?accion=listar">REPORTES</a></li>
                         <li><a href="ControladorC?accion=Salir">CERRAR SESION</a></li>
                         
                     </ul>
@@ -47,47 +47,21 @@
         </header>
     <center>
         <div class="">
-            <h1>Administrador de Usuarios YourGames</h1>
+            <h1>LISTADO DE USUARIOS</h1>
+            <form action="ControladorInfor">
+                   <input type="submit" name="accion" value="Regresar" class="btn btn-success btn-lg">
+            </form>
+            <br/> 
             
-            <div class="mensaje">
-                    <c:if test="${mensaje != null}" >
-                        <div class="alert alert-success alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>Resultado!</strong>${mensaje}
-                        </div>
-                    </c:if>
-                    <c:if test="${aviso != null}" >
-                        <div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>Error:</strong>${aviso}
-                        </div>
-                    </c:if>  
-
-                </div>
-            <a class="btn btn-success" href="Controlador?accion=add">Agregar Nuevo</a>
-           
-            
-            <br> <br>
-            <div class="fields">
-                <form action="Controlador">
-                    <input class="field" type="number" name="txtBuscar" required="" >
-                    <input class="btn btn-primary" type="submit" name="accion" value="Buscar">
-
-                </form>
-              
-            </div>
-            <br>
             <div class="content2">
             <table class="table table-striped table-dark">
                 <thead class="table thead-dark">
                     <tr>
                         <th>CEDULA</th>
                         <th>NOMBRES</th>
-                        <th>CORREO</th>
+                        <th>CORREO ELECTRONICO</th>
                         <th>USUARIO</th>
-                        <th>CLAVE</th>
-                        <th>NIVEL</th>
-                        <th>ACCIONES</th>
+                        <th>PASSWORD</th>
                     </tr>
                 </thead>
                 <%
@@ -106,27 +80,6 @@
                         <td><%= per.getCorreo()%></td>
                         <td><%= per.getUsuario()%></td>
                         <td><%= per.getClave()%></td>
-                        <td><%= per.getTipoUsuario()%></td>
-                        <td class="text-center">
-                            <a class="btn btn-warning" href="Controlador?accion=editar&cedula=<%= per.getCedula()%>">Editar</a>
-                            <a class="btn btn-danger" href="Controlador?accion=eliminar&cedula=<%= per.getCedula()%>"  onclick="javascript:return confirmAction()">Eliminar</a>
-                    <script>
-                        // The function below will start the confirmation dialog
-                        function confirmAction() {
-                            let confirmAction = confirm("Confirma el Borrado de este usuario?");
-                            if (confirmAction) {
-                                alert("Los Datos del Usuario serán Borrados");
-                                return true;
-
-                            } else {
-                                alert("Action canceled");
-                                return false;
-
-                            }
-                        }
-                    </script> 
-                           
-                        </td>
                     </tr>
                     <%}%>
                 </tbody>

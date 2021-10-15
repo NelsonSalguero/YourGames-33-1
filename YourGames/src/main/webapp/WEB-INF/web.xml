@@ -24,6 +24,10 @@
         <servlet-name>ControladorV</servlet-name>
         <servlet-class>Ciclo3.Proyecto.Controlador.ControladorV</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorInfor</servlet-name>
+        <servlet-class>Ciclo3.Proyecto.Controlador.ControladorInfor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ControladorV</servlet-name>
         <url-pattern>/ControladorV</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorInfor</servlet-name>
+        <url-pattern>/ControladorInfor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

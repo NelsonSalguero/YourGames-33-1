@@ -33,7 +33,7 @@
                         <li><a href="ControladorP?accion=listar">PROVEEDORES</a></li>
                         <li><a href="ControladorCSV?accion=listar">PRODUCTOS</a></li>
                         <li><a href="ControladorV?accion=goventas">VENTAS</a></li>
-                        <li><a href="#">REPORTES</a></li>
+                        <li><a href="ControladorInfor?accion=listar">REPORTES</a></li>
                         <li><a href="ControladorC?accion=Salir">CERRAR SESION</a></li>
                         
                     </ul>

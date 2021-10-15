@@ -71,6 +71,11 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "cedula=" + cedula + ", nom=" + nom + ", correo=" + correo + ", usuario=" + usuario + ", clave=" + clave + ", tipoUsuario=" + tipoUsuario + '}';
+    }
+
    
     
 }
