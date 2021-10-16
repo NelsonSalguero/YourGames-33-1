@@ -134,6 +134,11 @@ public class ControladorV extends HttpServlet {
                     request.setAttribute("mensaje",mensaje);
                     request.setAttribute("idVenta", numeroFactura);
                     request.setAttribute("clienteFactura", clo);
+                     request.setAttribute("detalleVentas", detalleVentas);
+                    request.setAttribute("subtotal", subtotal);
+                    request.setAttribute("totalIva", totalIva);
+                    request.setAttribute("totalFactura", totalFactura);
+                    
                     acceso = afacturar;
                 } else {
 //                     aca poner método para llevar los datos del producto cliente y numero a factura
