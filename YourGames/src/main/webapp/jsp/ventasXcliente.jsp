@@ -10,6 +10,7 @@
 <%@page import="Ciclo3.Proyecto.ModeloDAO.VentaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -62,7 +63,7 @@
                 </tr>
             </thead>
             <%
-                               
+                double granTotal=0;              
                 VentaDAO dao = new VentaDAO();
                 List<ReporteVentas> list = dao.reporteVentasXCliente();
                 Iterator<ReporteVentas> iter = list.iterator();
@@ -76,11 +77,30 @@
                     <td class="text-center"><%= cli.getCedulaCliente()%></td>
                     <td><%= cli.getNombreCliente()%></td>
                     <td><%= cli.getVentaT()%></td>
+                    <%granTotal=granTotal+cli.getVentaT(); %>
                                         
             <%}%>
             </tbody>
         </table>
-
+            <table class="table table-striped table-dark">
+                <thead class="table thead-dark">
+                <tr>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                <tr>
+                    
+                    <td>TOTAL DE VENTAS</td>
+                    <td>   <%=granTotal%></td>
+                   
+                 </tr>                       
+           
+            </tbody>
+        </table>   
     </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
